@@ -40,7 +40,9 @@
     [self.locationManager requestAlwaysAuthorization];
     [self.locationManager startUpdatingLocation];
     
-     //NSLog(@"Accessing updateCurrentLocation method");
+    //NSLog(@"Accessing updateCurrentLocation method");
+    
+    
 }
 
 - (void)findCoffeePlaces:(CLLocation *)location
@@ -87,9 +89,11 @@
    //NSLog(@"Entered didUpdateLocations method");
     
     self.currentLocation = locations.firstObject;
-    
+    //NSLog(@"%@", locations.firstObject);
+   
     [self.locationManager startUpdatingLocation];
     [self findCoffeePlaces:self.currentLocation];
+    [self.locationManager stopUpdatingLocation];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
